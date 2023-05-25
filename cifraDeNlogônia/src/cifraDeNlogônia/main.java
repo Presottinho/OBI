@@ -47,18 +47,17 @@ public class main {
 		System.out.println("Informe a palavra desejada para criptograr. ");
 		String word = keyboard.next();
 		
-		int numOfLetters = word.length();
-		
 		List result = new ArrayList();
 		
-		char[] splitted = new char[numOfLetters];
+		char[] splitted = new char[word.length()];
 		
-		for(int i = 0; i < numOfLetters; i++) {
+		for(int i = 0; i < word.length(); i++) {
 			splitted[i] = word.charAt(i);
+			System.out.println(splitted[i]);
 		}
+
 		
-		for(int p = 0; p < numOfLetters; p++) {
-			for(int n = 0; n < numOfLetters; n++) {
+		for(int p = 0; p < word.length(); p++) {
 				if(vogals.contains(splitted[p])) {
 					result.add(splitted[p]);
 				}else {
@@ -71,26 +70,24 @@ public class main {
 						if(splitted[p] == alphabet[u]) {
 							for(int z = u; z < alphabet.length; z++) {
 								for(int t = 0; t < vogals.size(); t++) {
-									if(vogals.contains(alphabet[u])) {
-										proximityF = (p - u);
+									if(vogals.contains(alphabet[z])) {
+										proximityF = u;
 									}
 								}
 							}
 						
 							for(int h = u; h > 0; h--) {
-								for(int c = u; c > 0; c++) {
 									for(int k = 0; k < vogals.size(); k++) {
-										if(vogals.contains(alphabet[u])) {
-											proximityF = (p - u);
+										if(vogals.contains(alphabet[h])) {
+											proximityF = h;
 										}
-									}
 								}
 							}
 							
 							if(proximityF > proximityS) {
-								result.add(alphabet[p - proximityS]);
+								result.add(alphabet[proximityS]);
 							}else{
-								result.add(alphabet[p - proximityF]);
+								result.add(alphabet[proximityF]);
 							}
 							
 							for(int v = p; v < alphabet.length; v++) {
@@ -105,11 +102,10 @@ public class main {
 						}
 					}
 				}
-			}
 		}
 		
-		System.out.println(result.toString());
-
+		System.out.println(result.toString() + " " + result.size());
+	
 	}
 
 }
