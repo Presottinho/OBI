@@ -69,18 +69,15 @@ public class main {
 						
 						if(splitted[p] == alphabet[u]) {
 							for(int z = u; z < alphabet.length; z++) {
-								for(int t = 0; t < vogals.size(); t++) {
-									if(vogals.contains(alphabet[z])) {
-										proximityF = u;
-									}
+								if(vogals.contains(alphabet[z])) {
+									proximityF = u;
+
 								}
 							}
 						
 							for(int h = u; h > 0; h--) {
-									for(int k = 0; k < vogals.size(); k++) {
-										if(vogals.contains(alphabet[h])) {
-											proximityF = h;
-										}
+								if(vogals.contains(alphabet[h])) {
+									proximityF = h;
 								}
 							}
 							
@@ -91,21 +88,19 @@ public class main {
 							}
 							
 							for(int v = p; v < alphabet.length; v++) {
-								for(int b = 0; b < vogals.size(); b++) {
-									if(vogals.contains(alphabet[p])) {
+								if(vogals.contains(alphabet[p])) {
 										
-									}else {
-										result.add(alphabet[p]);
-									}
-								}
+								}else {
+									result.add(alphabet[p]);
+																
+								}	
 							}
 						}
 					}
-				}
-		}
+			}
 		
-		System.out.println(result.toString() + " " + result.size());
-	
+			System.out.println(result.toString() + " " + result.size());
+			
+		}
 	}
-
 }
